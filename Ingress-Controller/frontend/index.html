@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Page</title>
+</head>
+<body>
+    <h1 id="heading"></h1>
+    <script>
+        fetch("http://localhost:8000").then(async (response) => {
+            const result = await response.json();
+            document.getElementById("heading").innerText = result.message;
+        }).catch((error) => {
+            document.getElementById("heading").innerText = "Failed to get message";
+        });
+    </script>
+</body>
+</html>
